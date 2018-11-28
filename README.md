@@ -1,6 +1,14 @@
 # mql4-redis
 
-MQL4 redis binding based on hiredis
+远程连接redis需要在redis.window.conf 文件中修改以下配置
+1、bind 127.0.0.1 改为 bind 0.0.0.0  
+2、protected-mode yes 改为 protected no  
+3、#reuquirepass password，去掉注释，修改密码
+4、客户端连接redis命令：redis-cli.exe -h hiiboy.com -p 6379 -a password
+5、mt4连接redis的时候：  
+   RedisContext *c=RedisContext::connect("hiiboy.com",6379);  
+   c.appendCommand("AUTH password");  //增加此行
+
 
 ## Introduction
 
