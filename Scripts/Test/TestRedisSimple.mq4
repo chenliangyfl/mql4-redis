@@ -16,7 +16,8 @@ RedisSimple *client=NULL;
 //+------------------------------------------------------------------+
 int OnInit()
   {
-   RedisContext *c=RedisContext::connect("127.0.0.1",6379);
+   RedisContext *c=RedisContext::connect("hiiboy.com",6379);
+   c.appendCommand("AUTH mycode"); //mycode是远程密码
    if(c==NULL)
      {
       return INIT_FAILED;
